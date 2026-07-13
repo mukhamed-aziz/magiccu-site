@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#12304A"/>
+      <stop offset="1" stop-color="#040C16"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <g transform="translate(32,32) scale(0.225)">
+    <g transform="matrix(34.64,20,0,-40,-104,60)">
+      <rect x="0" y="0" width="3" height="3" fill="#0a1626"/>
+      <rect x="0.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/><rect x="1.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/><rect x="2.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/>
+      <rect x="0.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/><rect x="1.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/><rect x="2.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/>
+      <rect x="0.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/><rect x="1.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/><rect x="2.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/>
+    </g>
+    <g transform="matrix(-34.64,20,0,-40,104,60)">
+      <rect x="0" y="0" width="3" height="3" fill="#0a1626"/>
+      <rect x="0.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/><rect x="1.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/><rect x="2.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/>
+      <rect x="0.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/><rect x="1.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/><rect x="2.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/>
+      <rect x="0.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/><rect x="1.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/><rect x="2.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/>
+    </g>
+    <g transform="matrix(34.64,20,-34.64,20,0,-120)">
+      <rect x="0" y="0" width="3" height="3" fill="#0a1626"/>
+      <rect x="0.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/><rect x="1.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/><rect x="2.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/>
+      <rect x="0.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/><rect x="1.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/><rect x="2.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/>
+      <rect x="0.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/><rect x="1.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/><rect x="2.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/>
+    </g>
+  </g>
+</svg>
