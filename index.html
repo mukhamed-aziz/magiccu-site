@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magic Cube Simulator — a zen 3D twisty puzzle</title>
+<meta name="description" content="Magic Cube Simulator: a zen 3D twisty cube puzzle for iPhone and Android. Smooth, tactile, beautiful — no ads, no account, free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body {
+    background: linear-gradient(180deg, #0A1A2A 0%, #02070E 100%) fixed;
+    color: #DBE6F0;
+    font-family: 'Oxanium', 'Segoe UI', sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
+    padding: 8vh 1.5rem 3rem;
+  }
+  .stage { position: relative; width: 300px; height: 300px; margin-bottom: 2.2rem; }
+  .glow {
+    position: absolute; inset: -110px;
+    background: radial-gradient(closest-side, rgba(64,164,202,0.26), rgba(28,135,182,0.10) 55%, transparent 75%);
+    pointer-events: none;
+  }
+  svg { position: relative; width: 100%; height: 100%; }
+  h1 {
+    font-weight: 800; color: #F2F6FB;
+    font-size: clamp(2.2rem, 8vw, 3.4rem);
+    letter-spacing: .06em; line-height: 1.1;
+  }
+  .sub { margin-top: .6rem; font-weight: 800; font-size: clamp(1rem, 3.5vw, 1.3rem); letter-spacing: .55em; padding-left: .55em; }
+  .tag { margin-top: 1.6rem; max-width: 34rem; color: #9FB3C6; font-weight: 500; font-size: 1.05rem; line-height: 1.6; }
+  .pills { margin-top: 2.2rem; display: flex; gap: .8rem; flex-wrap: wrap; justify-content: center; }
+  .pill {
+    border: 1px solid rgba(140, 208, 255, 0.28); border-radius: 999px;
+    padding: .55em 1.2em; font-weight: 600; font-size: .9rem; color: #8CD0FF;
+    background: rgba(18, 48, 74, 0.25);
+  }
+  .pill small { color: #72889C; font-weight: 500; }
+  footer { margin-top: auto; padding-top: 3.5rem; font-size: .85rem; color: #72889C; }
+  footer a { color: #8CD0FF; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .sep { margin: 0 .6em; opacity: .5; }
+  @media (max-width: 480px) { .stage { width: 220px; height: 220px; } }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="glow"></div>
+    <svg viewBox="-130 -150 260 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Isometric magic cube">
+      <!-- left face -->
+      <g transform="matrix(34.64,20,0,-40,-104,60)">
+        <rect x="0" y="0" width="3" height="3" fill="#0a1626"/>
+        <rect x="0.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/><rect x="1.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/><rect x="2.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/>
+        <rect x="0.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/><rect x="1.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/><rect x="2.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/>
+        <rect x="0.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/><rect x="1.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/><rect x="2.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#24468A"/>
+      </g>
+      <!-- right face -->
+      <g transform="matrix(-34.64,20,0,-40,104,60)">
+        <rect x="0" y="0" width="3" height="3" fill="#0a1626"/>
+        <rect x="0.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/><rect x="1.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/><rect x="2.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/>
+        <rect x="0.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/><rect x="1.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/><rect x="2.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/>
+        <rect x="0.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/><rect x="1.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/><rect x="2.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#1494BE"/>
+      </g>
+      <!-- top face -->
+      <g transform="matrix(34.64,20,-34.64,20,0,-120)">
+        <rect x="0" y="0" width="3" height="3" fill="#0a1626"/>
+        <rect x="0.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/><rect x="1.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/><rect x="2.06" y="0.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/>
+        <rect x="0.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/><rect x="1.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/><rect x="2.06" y="1.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/>
+        <rect x="0.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/><rect x="1.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/><rect x="2.06" y="2.06" width="0.88" height="0.88" rx="0.09" fill="#D8EDF8"/>
+      </g>
+    </svg>
+  </div>
+
+  <h1>MAGIC CUBE</h1>
+  <div class="sub" aria-label="SIMULATOR"><span style="color:#FFE969">S</span><span style="color:#FFA169">I</span><span style="color:#FF6982">M</span><span style="color:#69FFAF">U</span><span style="color:#8CD0FF">L</span><span style="color:#FFE969">A</span><span style="color:#FFA169">T</span><span style="color:#FF6982">O</span><span style="color:#69FFAF">R</span></div>
+
+  <p class="tag">A zen 3D twisty puzzle for iPhone and Android. Smooth, tactile, beautiful —
+  four cube sizes, unlimited undo, records to chase. No ads, no account. Free.</p>
+
+  <div class="pills">
+    <span class="pill">App Store <small>· coming soon</small></span>
+    <span class="pill">Google Play <small>· coming soon</small></span>
+  </div>
+
+  <footer>
+    <a href="/privacy/">Privacy Policy</a><span class="sep">·</span>
+    <a href="/privacy/#support">Support</a><span class="sep">·</span>
+    <span>© 2026 Magiccu</span>
+  </footer>
+</body>
+</html>
