@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
 <title>Magic Cube Simulator — a zen 3D twisty cube puzzle</title>
 <meta name="description" content="Magic Cube Simulator: a zen 3D twisty cube puzzle for iPhone and Android. Four sizes from 2×2 to 5×5, tactile controls, unlimited undo, records to chase. No ads, no account, free.">
 <link rel="canonical" href="https://magiccu.com/">
@@ -64,7 +65,7 @@
     position: fixed; inset: 0; z-index: -1;
     background:
       radial-gradient(60rem 40rem at 85% -10%, rgba(64,164,202,.13), transparent 60%),
-      radial-gradient(50rem 36rem at -15% 35%, rgba(42,82,160,.11), transparent 60%),
+      radial-gradient(50rem 36rem at -18% 35%, rgba(42,82,160,.08), transparent 70%),
       linear-gradient(180deg, #0A1A2A 0%, #02070E 100%);
   }
   ::selection { background: rgba(140,208,255,.28); }
@@ -94,7 +95,7 @@
   }
 
   /* ---------- hero ---------- */
-  .hero { padding: 4.5rem 0 5rem; }
+  .hero { padding: 4.2rem 0; }
   .herorow { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 3rem; align-items: center; }
   .stage { position: relative; width: 168px; height: 190px; margin-bottom: 1.8rem; }
   .stage .glow {
@@ -203,6 +204,48 @@
     font-size: .85rem; color: #72889C;
   }
   .sep { margin: 0 .6em; opacity: .5; }
+
+  /* ---------- polish ---------- */
+  h2 { text-wrap: balance; }
+  #features, #shots, #get {
+    background: linear-gradient(90deg, transparent, rgba(140,208,255,.13), transparent) top center / min(720px, 82%) 1px no-repeat;
+  }
+  .strip { scrollbar-width: none; }
+  .strip::-webkit-scrollbar { display: none; }
+  .card { transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
+  .shot { transition: transform .35s ease, border-color .35s ease; }
+  @media (hover: hover) {
+    .card:hover { transform: translateY(-4px); border-color: rgba(140,208,255,.3); box-shadow: 0 16px 36px rgba(0,0,0,.4); }
+    .shot:hover { transform: translateY(-4px); border-color: rgba(140,208,255,.34); }
+  }
+  .arrow { transition: background .25s ease, color .25s ease, opacity .25s ease; }
+  .arrow:disabled { opacity: .32; cursor: default; }
+  .arrow:disabled:hover { background: rgba(18,48,74,.35); color: #8CD0FF; }
+  .closing { position: relative; }
+  .closing::before {
+    content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: radial-gradient(38rem 20rem at 50% 36%, rgba(64,164,202,.11), transparent 65%);
+  }
+  footer .fcube { width: 30px; height: 34px; margin: 0 auto; display: block; opacity: .9; }
+  footer .made { color: #9FB3C6; font-size: .9rem; margin: .8rem 0 1.1rem; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .hero .stage { animation: rise .7s .05s both; }
+  .hero h1 { animation: rise .7s .12s both; }
+  .hero .sub { animation: rise .7s .19s both; }
+  .hero .tag { animation: rise .7s .26s both; }
+  .hero .chips { animation: rise .7s .33s both; }
+  .hero .pills { animation: rise .7s .4s both; }
+  .phonewrap { animation: rise .9s .2s both; }
+  .phone { animation: float 7.5s 1.6s ease-in-out infinite; }
+  .js [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity .65s ease, transform .65s ease; }
+  .js [data-reveal].in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero .stage, .hero h1, .hero .sub, .hero .tag, .hero .chips, .hero .pills,
+    .phonewrap, .phone { animation: none; }
+    .js [data-reveal] { opacity: 1; transform: none; transition: none; }
+    .card, .shot { transition: none; }
+  }
 </style>
 </head>
 <body>
@@ -267,46 +310,48 @@
         <span class="pill">Google Play <small>· coming soon</small></span>
       </div>
     </div>
-    <div class="phone">
-      <img src="assets/shots/mkt-01.jpg" width="540" height="1080" fetchpriority="high"
-           alt="Game screenshot: a colorful magic cube floating over a dark puzzle world — let this cube be the first problem you solve on your own">
+    <div class="phonewrap">
+      <div class="phone">
+        <img src="assets/shots/mkt-01.jpg" width="540" height="1080" fetchpriority="high"
+             alt="Game screenshot: a colorful magic cube floating over a dark puzzle world — let this cube be the first problem you solve on your own">
+      </div>
     </div>
   </div>
 </header>
 
 <section id="features">
   <div class="wrap">
-    <div class="overline">The game</div>
-    <h2>Built around how a cube should feel</h2>
-    <p class="lede">Layers glide under your finger, snap into place with a satisfying spring,
+    <div class="overline" data-reveal>The game</div>
+    <h2 data-reveal>Built around how a cube should feel</h2>
+    <p class="lede" data-reveal>Layers glide under your finger, snap into place with a satisfying spring,
     and every solve ends in a celebration you earned.</p>
     <div class="cards">
-      <div class="card" style="--a:#FFE969">
+      <div class="card" data-reveal style="--a:#FFE969">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="12" height="12" rx="2"/><path d="M9 5.5V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-.5"/></svg></div>
         <h3>Four cube sizes</h3>
         <p>Warm up on the 2×2, graduate to the full 5×5 — pick the challenge that fits today.</p>
       </div>
-      <div class="card" style="--a:#FFA169">
+      <div class="card" data-reveal style="--a:#FFA169">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="2.6"/><circle cx="12" cy="12" r="7" opacity=".55"/><circle cx="12" cy="12" r="10.4" opacity=".25"/></svg></div>
         <h3>Tactile controls</h3>
         <p>Drag to turn layers, flick to spin the whole cube — and feel every click along the way.</p>
       </div>
-      <div class="card" style="--a:#FF6982">
+      <div class="card" data-reveal style="--a:#FF6982">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8.5"/><path d="M12 9v4.2l3 1.8M9.5 2.5h5"/></svg></div>
         <h3>Timer &amp; records</h3>
         <p>A quiet timer and your top-3 best times for every cube size. Race only yourself.</p>
       </div>
-      <div class="card" style="--a:#69FFAF">
+      <div class="card" data-reveal style="--a:#69FFAF">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 13.5 4.5 9 9 4.5"/><path d="M4.5 9H14a5.5 5.5 0 1 1 0 11h-3"/></svg></div>
         <h3>Unlimited undo</h3>
         <p>Rewind any move — or trigger a cinematic time-reversal reset that replays your whole history backwards.</p>
       </div>
-      <div class="card" style="--a:#8CD0FF">
+      <div class="card" data-reveal style="--a:#8CD0FF">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1L12 21.5l-2.1-7.4-7.4-2.1 7.4-2.1z"/></svg></div>
         <h3>Zen aesthetic</h3>
         <p>Deep-space calm, soft glows — and fireworks when you set a new record.</p>
       </div>
-      <div class="card" style="--a:#FFA169">
+      <div class="card" data-reveal style="--a:#FFA169">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="8.2" y="3" width="7.6" height="18" rx="2"/><path d="M4.6 9.5a4.6 4.6 0 0 1 0 5M19.4 9.5a4.6 4.6 0 0 0 0 5"/></svg></div>
         <h3>Rich haptics</h3>
         <p>Tuned vibration feedback on every turn and snap — the cube feels real in your hands.</p>
@@ -319,9 +364,9 @@
   <div class="wrap">
     <div class="galleryhead">
       <div>
-        <div class="overline">Straight from the game</div>
-        <h2>A quiet, tactile world</h2>
-        <p class="lede">Every screen is designed to stay calm. Swipe through — this is how it looks in your hands.</p>
+        <div class="overline" data-reveal>Straight from the game</div>
+        <h2 data-reveal>A quiet, tactile world</h2>
+        <p class="lede" data-reveal>Every screen is designed to stay calm. Swipe through — this is how it looks in your hands.</p>
       </div>
       <div class="arrows">
         <button class="arrow" type="button" data-scroll="prev" aria-label="Scroll screenshots left">&#8592;</button>
@@ -329,34 +374,36 @@
       </div>
     </div>
     <div class="strip" aria-label="Screenshot gallery">
-      <div class="shot"><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-02.jpg" alt="Real-time and interactive — feel the cube, as real as it gets: a scrambled cube mid-turn with the timer running"></div>
-      <div class="shot"><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-03.jpg" alt="Cube sizes 2×2 to 5×5 — easy to hard, pick your challenge"></div>
-      <div class="shot"><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-04.jpg" alt="Progress and persistence — pick up where you left off: two saved cubes side by side"></div>
-      <div class="shot"><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-05.jpg" alt="Visual effects and animations — beauty in every move"></div>
-      <div class="shot"><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-06.jpg" alt="Intuitive gestures — pinch anywhere to zoom"></div>
-      <div class="shot"><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-07.jpg" alt="Intuitive gestures — twist to roll the whole cube"></div>
-      <div class="shot"><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-08.jpg" alt="Intuitive gestures — multi-finger swipe turns many layers at once"></div>
-      <div class="shot"><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-09.jpg" alt="Elegant and clean UI — the game menu, clean and calm by design"></div>
-      <div class="shot"><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-10.jpg" alt="Race against yourself — the records screen with your top-3 times per cube size"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-02.jpg" alt="Real-time and interactive — feel the cube, as real as it gets: a scrambled cube mid-turn with the timer running"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-03.jpg" alt="Cube sizes 2×2 to 5×5 — easy to hard, pick your challenge"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-04.jpg" alt="Progress and persistence — pick up where you left off: two saved cubes side by side"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-05.jpg" alt="Visual effects and animations — beauty in every move"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-06.jpg" alt="Intuitive gestures — pinch anywhere to zoom"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-07.jpg" alt="Intuitive gestures — twist to roll the whole cube"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-08.jpg" alt="Intuitive gestures — multi-finger swipe turns many layers at once"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-09.jpg" alt="Elegant and clean UI — the game menu, clean and calm by design"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-10.jpg" alt="Race against yourself — the records screen with your top-3 times per cube size"></div>
     </div>
   </div>
 </section>
 
 <section class="closing" id="get">
   <div class="wrap">
-    <div class="overline">Free · Offline · No ads</div>
-    <h2>Twist. Breathe. Solve.</h2>
-    <p class="lede">Whether it's your first cube or your thousandth solve, make the promise:
+    <div class="overline" data-reveal>Free · Offline · No ads</div>
+    <h2 data-reveal>Twist. Breathe. Solve.</h2>
+    <p class="lede" data-reveal>Whether it's your first cube or your thousandth solve, make the promise:
     discover the solution yourself.</p>
-    <div class="pills">
+    <div class="pills" data-reveal>
       <span class="pill">App Store <small>· coming soon</small></span>
       <span class="pill">Google Play <small>· coming soon</small></span>
     </div>
-    <p class="soon">Magic Cube Simulator is in closed testing and launching soon on iPhone and Android.</p>
+    <p class="soon" data-reveal>Magic Cube Simulator is in closed testing and launching soon on iPhone and Android.</p>
   </div>
 </section>
 
 <footer>
+  <svg class="fcube" viewBox="0 0 260 300" aria-hidden="true"><use href="#cubeart" width="260" height="300"/></svg>
+  <div class="made">A small game by a small team — made with love.</div>
   <a href="/privacy/">Privacy Policy</a><span class="sep">·</span>
   <a href="/privacy/#support">Support</a><span class="sep">·</span>
   <span>© 2026 Magiccu</span>
@@ -365,15 +412,45 @@
 <script>
   (function () {
     var strip = document.querySelector('.strip');
-    if (!strip) return;
-    document.querySelectorAll('[data-scroll]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
+    var prev = document.querySelector('[data-scroll="prev"]');
+    var next = document.querySelector('[data-scroll="next"]');
+    if (strip) {
+      var step = function () {
         var card = strip.querySelector('.shot');
-        if (!card) return;
-        var dx = (card.getBoundingClientRect().width + 18) * (btn.dataset.scroll === 'next' ? 1 : -1);
-        strip.scrollBy({ left: dx, behavior: 'smooth' });
+        var gap = parseFloat(getComputedStyle(strip).columnGap) || 18;
+        return card ? card.getBoundingClientRect().width + gap : 300;
+      };
+      [prev, next].forEach(function (btn) {
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          strip.scrollBy({ left: step() * (btn === next ? 1 : -1), behavior: 'smooth' });
+        });
       });
-    });
+      var edges = function () {
+        var max = strip.scrollWidth - strip.clientWidth - 4;
+        if (prev) prev.disabled = strip.scrollLeft <= 4;
+        if (next) next.disabled = strip.scrollLeft >= max;
+      };
+      strip.addEventListener('scroll', edges, { passive: true });
+      window.addEventListener('resize', edges);
+      edges();
+    }
+    var revealed = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window && revealed.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      revealed.forEach(function (el) {
+        var sibs = el.parentElement ? el.parentElement.querySelectorAll(':scope > [data-reveal]') : [];
+        var idx = Array.prototype.indexOf.call(sibs, el);
+        el.style.transitionDelay = (idx > 0 ? Math.min(idx * 70, 350) : 0) + 'ms';
+        io.observe(el);
+      });
+    } else {
+      revealed.forEach(function (el) { el.classList.add('in'); });
+    }
   })();
 </script>
 
