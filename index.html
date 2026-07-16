@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://magiccu.com/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Magic Cube Simulator — an isometric magic cube next to the game wordmark">
+<meta property="og:image:alt" content="The Magic Cube Simulator logo: an isometric cube beside the game wordmark">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Magic Cube Simulator">
 <meta name="twitter:description" content="A zen 3D twisty cube puzzle. Smooth, tactile, beautiful. Can you solve it?">
@@ -116,11 +116,17 @@
   }
   .pills { margin-top: 2rem; display: flex; gap: .8rem; flex-wrap: wrap; }
   .pill {
+    display: inline-flex; align-items: center; gap: .55em;
     border: 1px solid rgba(140,208,255,.3); border-radius: 999px;
     padding: .65em 1.35em; font-weight: 700; font-size: .95rem; color: #F2F6FB;
     background: rgba(18,48,74,.35);
+    transition: background .25s ease, border-color .25s ease, transform .25s ease;
   }
-  .pill small { color: #72889C; font-weight: 500; }
+  .pill:hover { text-decoration: none; }
+  @media (hover: hover) {
+    .pill:hover { background: rgba(28,68,104,.55); border-color: rgba(140,208,255,.55); transform: translateY(-2px); }
+  }
+  .pill svg { width: 19px; height: 19px; fill: currentColor; flex: none; }
 
   .phone {
     width: min(100%, 300px); margin: 0 auto;
@@ -144,7 +150,7 @@
   section { padding: 4.5rem 0; }
   .overline { color: #8CD0FF; font-weight: 700; font-size: .8rem; letter-spacing: .38em; text-transform: uppercase; }
   h2 { margin-top: .55rem; font-weight: 800; color: #F2F6FB; font-size: clamp(1.7rem, 3.6vw, 2.4rem); letter-spacing: .03em; line-height: 1.15; }
-  .lede { margin-top: .9rem; color: #9FB3C6; max-width: 36rem; }
+  .lede { margin-top: .9rem; color: #9FB3C6; max-width: 36rem; text-wrap: pretty; }
 
   /* ---------- features ---------- */
   .cards { margin-top: 2.4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.1rem; }
@@ -205,9 +211,59 @@
   }
   .sep { margin: 0 .6em; opacity: .5; }
 
-  /* ---------- polish ---------- */
+  /* ---------- team ---------- */
+  .team { text-align: center; }
+  .team .lede { margin-left: auto; margin-right: auto; }
+  .credits {
+    margin: 2.6rem auto 0; max-width: 34rem;
+    border: 1px solid rgba(140,208,255,.16); border-radius: 24px;
+    background: linear-gradient(180deg, rgba(18,48,74,.34), rgba(10,26,42,.2));
+    padding: 2.4rem 1.6rem 2.2rem;
+    box-shadow: 0 24px 60px rgba(0,0,0,.4);
+  }
+  .credits .title {
+    font-weight: 800; color: #F2F6FB; letter-spacing: .3em;
+    font-size: 1.05rem; padding-left: .3em;
+  }
+  .people { margin-top: 1.8rem; display: flex; gap: 2.2rem; justify-content: center; flex-wrap: wrap; }
+  .person { display: block; text-align: center; }
+  .person:hover { text-decoration: none; }
+  .person img {
+    width: 96px; height: 96px; border-radius: 14px;
+    border: 1px solid rgba(140,208,255,.3);
+    background: #E8EEF4;
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+  @media (hover: hover) {
+    .person:hover img { transform: translateY(-3px); border-color: rgba(140,208,255,.6); box-shadow: 0 12px 26px rgba(0,0,0,.45); }
+    .person:hover .handle { color: #F2F6FB; }
+  }
+  .handle {
+    margin-top: .7rem; display: flex; align-items: center; justify-content: center; gap: .4em;
+    color: #9FB3C6; font-size: .85rem; font-weight: 600; transition: color .3s ease;
+  }
+  .handle svg { width: 11px; height: 11px; fill: currentColor; flex: none; }
+  .credits .line { margin-top: 1.7rem; color: #B8C7D6; font-size: .98rem; }
+  .credits .line + .line { margin-top: .2rem; }
+  .rate {
+    margin-top: 1.6rem; display: inline-flex; align-items: center; gap: .55em;
+    border: 1px solid rgba(255,233,105,.34); border-radius: 999px;
+    background: rgba(255,233,105,.09);
+    padding: .6em 1.35em; color: #FFE969; font-weight: 700; font-size: .92rem; letter-spacing: .1em;
+    font-family: inherit; cursor: pointer;
+    transition: background .25s ease, border-color .25s ease, transform .25s ease;
+  }
+  .rate svg { width: 17px; height: 17px; fill: currentColor; flex: none; }
+  .rate small { color: #8a8256; font-weight: 500; letter-spacing: normal; }
+  .rate[disabled] { cursor: default; opacity: .78; }
+  @media (hover: hover) { .rate:not([disabled]):hover { background: rgba(255,233,105,.16); border-color: rgba(255,233,105,.55); transform: translateY(-2px); } }
+  .credits .fine { margin-top: 1.5rem; color: #72889C; font-size: .8rem; }
+  .credits .fine a { color: #8CD0FF; }
+  @media (max-width: 480px) { .people { gap: 1.6rem; } }
+
+  /* ---------- motion & interaction ---------- */
   h2 { text-wrap: balance; }
-  #features, #shots, #get {
+  #features, #shots, #team, #get {
     background: linear-gradient(90deg, transparent, rgba(140,208,255,.13), transparent) top center / min(720px, 82%) 1px no-repeat;
   }
   .strip { scrollbar-width: none; }
@@ -226,8 +282,7 @@
     content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
     background: radial-gradient(38rem 20rem at 50% 36%, rgba(64,164,202,.11), transparent 65%);
   }
-  footer .fcube { width: 30px; height: 34px; margin: 0 auto; display: block; opacity: .9; }
-  footer .made { color: #9FB3C6; font-size: .9rem; margin: .8rem 0 1.1rem; }
+  footer .fcube { width: 30px; height: 34px; margin: 0 auto 1.1rem; display: block; opacity: .9; }
   @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
   @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
   .hero .stage { animation: rise .7s .05s both; }
@@ -275,13 +330,14 @@
 
 <nav>
   <div class="wrap navrow">
-    <a class="brand" href="#top" aria-label="Magic Cube Simulator — home">
+    <a class="brand" href="#top" aria-label="Magic Cube Simulator, back to top">
       <svg viewBox="0 0 260 300" role="img" aria-hidden="true"><use href="#cubeart" width="260" height="300"/></svg>
       <span class="brandword">MAGIC CUBE <span aria-label="SIMULATOR"><span style="color:#FFE969">S</span><span style="color:#FFA169">I</span><span style="color:#FF6982">M</span><span style="color:#69FFAF">U</span><span style="color:#8CD0FF">L</span><span style="color:#FFE969">A</span><span style="color:#FFA169">T</span><span style="color:#FF6982">O</span><span style="color:#69FFAF">R</span></span></span>
     </a>
     <div class="navlinks">
       <a href="#features">Features</a>
       <a href="#shots">Screenshots</a>
+      <a href="#team">Team</a>
       <a href="/privacy/">Privacy</a>
     </div>
   </div>
@@ -297,7 +353,7 @@
       <h1>MAGIC CUBE</h1>
       <div class="sub" aria-label="SIMULATOR"><span style="color:#FFE969">S</span><span style="color:#FFA169">I</span><span style="color:#FF6982">M</span><span style="color:#69FFAF">U</span><span style="color:#8CD0FF">L</span><span style="color:#FFE969">A</span><span style="color:#FFA169">T</span><span style="color:#FF6982">O</span><span style="color:#69FFAF">R</span></div>
       <p class="tag"><strong>One cube. No instructions. No hand-holding.</strong>
-      Just you, a beautiful magic cube, and the quiet satisfaction of figuring it out yourself.</p>
+      Just you and the quiet satisfaction of working it out yourself.</p>
       <div class="chips">
         <span class="chip">Free</span>
         <span class="chip">No ads</span>
@@ -306,14 +362,20 @@
         <span class="chip">13 languages</span>
       </div>
       <div class="pills">
-        <span class="pill">App Store <small>· coming soon</small></span>
-        <span class="pill">Google Play <small>· coming soon</small></span>
+        <a class="pill" href="https://apps.apple.com/app/id6773098308">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.36 12.7c-.02-2.5 2.04-3.7 2.14-3.76-1.17-1.7-2.98-1.94-3.62-1.96-1.54-.16-3.01.9-3.79.9-.78 0-1.99-.88-3.27-.86-1.68.03-3.23.98-4.1 2.48-1.75 3.03-.45 7.51 1.25 9.97.83 1.2 1.82 2.55 3.12 2.5 1.25-.05 1.73-.81 3.24-.81 1.51 0 1.94.81 3.26.78 1.35-.02 2.2-1.22 3.02-2.43.95-1.39 1.34-2.74 1.36-2.81-.03-.01-2.6-1-2.62-3.96zM13.9 4.6c.69-.83 1.15-1.99 1.02-3.15-.99.04-2.19.66-2.9 1.49-.64.73-1.2 1.91-1.05 3.04 1.1.09 2.23-.56 2.93-1.38z"/></svg>
+          App Store
+        </a>
+        <a class="pill" href="https://play.google.com/store/apps/details?id=com.magiccu.magiccubepro">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.84a1.5 1.5 0 0 0-.44 1.06v18.2c0 .4.16.78.44 1.06l.06.06L13.8 12.1v-.24L3.66 1.78l-.06.06zM17.2 15.53l-3.4-3.4v-.25l3.4-3.41.08.05 4.03 2.29c1.15.65 1.15 1.72 0 2.38l-4.03 2.29-.08.05zM17.28 15.48 13.8 12 3.6 22.16c.38.4 1 .45 1.7.05l11.98-6.73M17.28 8.52 5.3 1.79c-.7-.4-1.32-.35-1.7.05L13.8 12l3.48-3.48z"/></svg>
+          Google Play
+        </a>
       </div>
     </div>
     <div class="phonewrap">
       <div class="phone">
         <img src="assets/shots/mkt-01.jpg" width="540" height="1080" fetchpriority="high"
-             alt="Game screenshot: a colorful magic cube floating over a dark puzzle world — let this cube be the first problem you solve on your own">
+             alt="The start screen: a colorful cube hovering above a dark puzzle board, marked New Game">
       </div>
     </div>
   </div>
@@ -329,32 +391,32 @@
       <div class="card" data-reveal style="--a:#FFE969">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="12" height="12" rx="2"/><path d="M9 5.5V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-.5"/></svg></div>
         <h3>Four cube sizes</h3>
-        <p>Warm up on the 2×2, graduate to the full 5×5 — pick the challenge that fits today.</p>
+        <p>Warm up on the 2×2, then work up to the 5×5. Each size keeps its own best times.</p>
       </div>
       <div class="card" data-reveal style="--a:#FFA169">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="2.6"/><circle cx="12" cy="12" r="7" opacity=".55"/><circle cx="12" cy="12" r="10.4" opacity=".25"/></svg></div>
         <h3>Tactile controls</h3>
-        <p>Drag to turn layers, flick to spin the whole cube — and feel every click along the way.</p>
+        <p>Drag to turn a layer. Flick to spin the whole cube. Swipe with two fingers and two layers turn at once.</p>
       </div>
       <div class="card" data-reveal style="--a:#FF6982">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8.5"/><path d="M12 9v4.2l3 1.8M9.5 2.5h5"/></svg></div>
         <h3>Timer &amp; records</h3>
-        <p>A quiet timer and your top-3 best times for every cube size. Race only yourself.</p>
+        <p>The timer sits quietly at the top. Beat one of your three best times and you get fireworks for it.</p>
       </div>
       <div class="card" data-reveal style="--a:#69FFAF">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 13.5 4.5 9 9 4.5"/><path d="M4.5 9H14a5.5 5.5 0 1 1 0 11h-3"/></svg></div>
         <h3>Unlimited undo</h3>
-        <p>Rewind any move — or trigger a cinematic time-reversal reset that replays your whole history backwards.</p>
+        <p>Take back one move, or every move. Reset replays your whole solve in reverse, and a double tap skips to the end.</p>
       </div>
       <div class="card" data-reveal style="--a:#8CD0FF">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1L12 21.5l-2.1-7.4-7.4-2.1 7.4-2.1z"/></svg></div>
         <h3>Zen aesthetic</h3>
-        <p>Deep-space calm, soft glows — and fireworks when you set a new record.</p>
+        <p>Dark, slow, quiet. Nothing on screen blinks for your attention while you think.</p>
       </div>
       <div class="card" data-reveal style="--a:#FFA169">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="8.2" y="3" width="7.6" height="18" rx="2"/><path d="M4.6 9.5a4.6 4.6 0 0 1 0 5M19.4 9.5a4.6 4.6 0 0 0 0 5"/></svg></div>
         <h3>Rich haptics</h3>
-        <p>Tuned vibration feedback on every turn and snap — the cube feels real in your hands.</p>
+        <p>Every turn and snap has its own vibration. Dial it back or switch it off in settings.</p>
       </div>
     </div>
   </div>
@@ -365,8 +427,8 @@
     <div class="galleryhead">
       <div>
         <div class="overline" data-reveal>Straight from the game</div>
-        <h2 data-reveal>A quiet, tactile world</h2>
-        <p class="lede" data-reveal>Every screen is designed to stay calm. Swipe through — this is how it looks in your hands.</p>
+        <h2 data-reveal>See it in your hands</h2>
+        <p class="lede" data-reveal>Swipe through the game, screen by screen.</p>
       </div>
       <div class="arrows">
         <button class="arrow" type="button" data-scroll="prev" aria-label="Scroll screenshots left">&#8592;</button>
@@ -374,18 +436,53 @@
       </div>
     </div>
     <div class="strip" aria-label="Screenshot gallery">
-      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-03.jpg" alt="Cube sizes 2×2 to 5×5 — easy to hard, pick your challenge"></div>
-      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-04.jpg" alt="Progress and persistence — pick up where you left off: two saved cubes side by side"></div>
-      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-05.jpg" alt="Visual effects and animations — beauty in every move"></div>
-      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-02.jpg" alt="Real-time and interactive — feel the cube, as real as it gets: a scrambled cube mid-turn with the timer running"></div>
-      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-14.jpg" alt="Intuitive gestures — swipe to orbit and see every side of the cube"></div>
-      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-06.jpg" alt="Intuitive gestures — pinch anywhere to zoom"></div>
-      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-07.jpg" alt="Intuitive gestures — twist to roll the whole cube"></div>
-      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-08.jpg" alt="Intuitive gestures — multi-finger swipe turns many layers at once"></div>
-      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-09.jpg" alt="Elegant and clean UI — the game menu, clean and calm by design"></div>
-      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-10.jpg" alt="Race against yourself — the records screen with your top-3 times per cube size"></div>
-      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-11.jpg" alt="Advanced tuning for your taste — the settings screen with language, graphics, haptics, and sound options"></div>
-      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-12.jpg" alt="Fresh start anytime — the reset screen for clearing records, game state, or everything"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-03.jpg" alt="The size picker, showing a 4×4 cube"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-04.jpg" alt="Two saved cubes side by side, a 3×3 and a 5×5"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-05.jpg" alt="A 5×5 cube mid-animation, pieces lit and in motion"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-02.jpg" alt="A scrambled 3×3 mid-turn with the timer running"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-14.jpg" alt="A swipe orbiting the camera around the cube"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-06.jpg" alt="A two-finger pinch zooming the view out"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-07.jpg" alt="A two-finger twist rolling the cube on its axis"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-08.jpg" alt="Three fingers turning three layers together"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-09.jpg" alt="The main menu: Cubes, Records, Settings, Credits, Reset"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-10.jpg" alt="The records screen, with the three best times for the 2×2"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-11.jpg" alt="Settings: language, graphics, haptics and sound"></div>
+      <div class="shot" data-reveal><img loading="lazy" decoding="async" width="540" height="1080" src="assets/shots/mkt-12.jpg" alt="The reset screen: personal records, game state, or everything"></div>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="overline" data-reveal>A small indie game</div>
+    <h2 data-reveal>Made by a small team</h2>
+    <p class="lede" data-reveal>Magic Cube Simulator is made by two people. You can reach either of us below.</p>
+
+    <div class="credits" data-reveal>
+      <div class="title">CREDITS</div>
+      <div class="people">
+        <a class="person" href="https://x.com/crowningpawn" target="_blank" rel="noopener noreferrer">
+          <img loading="lazy" decoding="async" width="192" height="192" src="assets/team/crowningpawn.png" alt="Illustrated portrait of the developer @crowningpawn">
+          <span class="handle">
+            <svg viewBox="0 0 128 128" aria-hidden="true"><path d="M100.8 6.15h19.64L77.55 55.16 128 121.86H88.51L57.55 81.41l-35.38 40.45H2.5l45.87-52.43L0 6.15h40.5l27.95 36.96L100.8 6.15Zm-6.9 103.97h10.88L34.57 17.27H22.89l71.01 92.85Z"/></svg>
+            @crowningpawn
+          </span>
+        </a>
+        <a class="person" href="https://x.com/SurmaliYusupov" target="_blank" rel="noopener noreferrer">
+          <img loading="lazy" decoding="async" width="192" height="192" src="assets/team/surmaliyusupov.png" alt="Illustrated portrait of the developer @SurmaliYusupov">
+          <span class="handle">
+            <svg viewBox="0 0 128 128" aria-hidden="true"><path d="M100.8 6.15h19.64L77.55 55.16 128 121.86H88.51L57.55 81.41l-35.38 40.45H2.5l45.87-52.43L0 6.15h40.5l27.95 36.96L100.8 6.15Zm-6.9 103.97h10.88L34.57 17.27H22.89l71.01 92.85Z"/></svg>
+            @SurmaliYusupov
+          </span>
+        </a>
+      </div>
+      <p class="line">A small game, made by a small team.</p>
+      <p class="line">Crafted with love, caffeine, and curiosity.</p>
+      <a class="rate" id="rate" href="#get">
+        <svg viewBox="0 0 128 128" aria-hidden="true"><path d="M95.09 57.4c-.75 0-1.5-.24-2.13-.71-1.21-.91-1.71-2.48-1.26-3.92l3.34-10.72-8.45-6.88c-1.14-.97-1.55-2.54-1.04-3.94.51-1.4 1.85-2.33 3.34-2.33h10.67l3.78-10.6c.51-1.39 1.84-2.31 3.33-2.31s2.82.92 3.33 2.31l3.78 10.6h10.67c1.49 0 2.83.93 3.34 2.34.51 1.4.09 2.97-1.05 3.94l-8.41 6.85 3.48 10.6c.47 1.43 0 3.01-1.21 3.94-1.2.92-2.85.99-4.11.16l-9.79-6.38-9.63 6.44c-.6.4-1.29.6-1.98.6ZM52.42 41.4c-.75 0-1.5-.24-2.13-.71-1.21-.91-1.71-2.48-1.26-3.92l3.34-10.72-8.45-6.88c-1.14-.97-1.55-2.54-1.04-3.94.51-1.4 1.85-2.33 3.34-2.33h10.67l3.78-10.6c.52-1.39 1.84-2.31 3.33-2.31s2.82.92 3.33 2.31l3.78 10.6h10.67c1.49 0 2.83.93 3.34 2.34.51 1.4.09 2.97-1.05 3.94l-8.41 6.85 3.48 10.6c.47 1.43 0 3.01-1.2 3.94-1.2.92-2.85.99-4.11.16l-9.79-6.38-9.63 6.44c-.6.4-1.3.6-1.99.6ZM9.75 57.4c-.75 0-1.5-.24-2.13-.71-1.21-.91-1.71-2.48-1.26-3.92l3.34-10.72-8.45-6.87c-1.14-.97-1.55-2.54-1.04-3.94.51-1.4 1.85-2.33 3.34-2.33h10.67l3.78-10.6c.52-1.39 1.85-2.31 3.34-2.31s2.81.92 3.33 2.31l3.78 10.6h10.67c1.49 0 2.83.93 3.34 2.34.51 1.4.09 2.97-1.05 3.94l-8.41 6.85 3.48 10.6c.47 1.43 0 3.01-1.2 3.94-1.2.92-2.85.99-4.11.16l-9.79-6.38-9.63 6.44c-.6.4-1.29.6-1.98.6l-.02.01ZM90.66 74.67H68.35l3.09-17.41c.3-1.78.15-2.77.04-3.2-1-3.68-4-6.06-7.64-6.06-1.14 0-2.28.23-3.41.7-1.36.56-2.68 1.96-3.64 3.83L45.1 74.67h-7.77c-8.84 0-16 7.16-16 16V112c0 8.84 7.16 16 16 16V90.67c0-2.95 2.39-5.34 5.33-5.34s5.33 2.39 5.33 5.34V128h34.02c10.17 0 18.92-7.18 20.92-17.15l3.41-17.05c1.98-9.9-5.6-19.13-15.69-19.13Z"/></svg>
+        RATE US
+      </a>
+      <p class="fine">© 2026 Magic Cube Simulator · Say hello: <a href="/privacy/#support">get in touch</a></p>
     </div>
   </div>
 </section>
@@ -393,20 +490,24 @@
 <section class="closing" id="get">
   <div class="wrap">
     <div class="overline" data-reveal>Free · Offline · No ads</div>
-    <h2 data-reveal>Twist. Breathe. Solve.</h2>
-    <p class="lede" data-reveal>Whether it's your first cube or your thousandth solve, make the promise:
-    discover the solution yourself.</p>
+    <h2 data-reveal>The solution is yours to discover</h2>
+    <p class="lede" data-reveal>Observe, test an idea, undo, try again. Take all the time you need.</p>
     <div class="pills" data-reveal>
-      <span class="pill">App Store <small>· coming soon</small></span>
-      <span class="pill">Google Play <small>· coming soon</small></span>
+      <a class="pill" href="https://apps.apple.com/app/id6773098308">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.36 12.7c-.02-2.5 2.04-3.7 2.14-3.76-1.17-1.7-2.98-1.94-3.62-1.96-1.54-.16-3.01.9-3.79.9-.78 0-1.99-.88-3.27-.86-1.68.03-3.23.98-4.1 2.48-1.75 3.03-.45 7.51 1.25 9.97.83 1.2 1.82 2.55 3.12 2.5 1.25-.05 1.73-.81 3.24-.81 1.51 0 1.94.81 3.26.78 1.35-.02 2.2-1.22 3.02-2.43.95-1.39 1.34-2.74 1.36-2.81-.03-.01-2.6-1-2.62-3.96zM13.9 4.6c.69-.83 1.15-1.99 1.02-3.15-.99.04-2.19.66-2.9 1.49-.64.73-1.2 1.91-1.05 3.04 1.1.09 2.23-.56 2.93-1.38z"/></svg>
+        App Store
+      </a>
+      <a class="pill" href="https://play.google.com/store/apps/details?id=com.magiccu.magiccubepro">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.84a1.5 1.5 0 0 0-.44 1.06v18.2c0 .4.16.78.44 1.06l.06.06L13.8 12.1v-.24L3.66 1.78l-.06.06zM17.2 15.53l-3.4-3.4v-.25l3.4-3.41.08.05 4.03 2.29c1.15.65 1.15 1.72 0 2.38l-4.03 2.29-.08.05zM17.28 15.48 13.8 12 3.6 22.16c.38.4 1 .45 1.7.05l11.98-6.73M17.28 8.52 5.3 1.79c-.7-.4-1.32-.35-1.7.05L13.8 12l3.48-3.48z"/></svg>
+        Google Play
+      </a>
     </div>
-    <p class="soon" data-reveal>Magic Cube Simulator is in closed testing and launching soon on iPhone and Android.</p>
+    <p class="soon" data-reveal>Free on iPhone and Android. No ads, no account, no purchases.</p>
   </div>
 </section>
 
 <footer>
   <svg class="fcube" viewBox="0 0 260 300" aria-hidden="true"><use href="#cubeart" width="260" height="300"/></svg>
-  <div class="made">A small game by a small team — made with love.</div>
   <a href="/privacy/">Privacy Policy</a><span class="sep">·</span>
   <a href="/privacy/#support">Support</a><span class="sep">·</span>
   <span>© 2026 Magiccu</span>
@@ -438,6 +539,18 @@
       window.addEventListener('resize', edges);
       edges();
     }
+    // "Rate us" can't know the visitor's platform from static HTML, so it falls back to the
+    // section with both store links and upgrades to the right store's review page when we can tell.
+    var rate = document.getElementById('rate');
+    if (rate) {
+      var ua = navigator.userAgent || '';
+      if (/iPhone|iPad|iPod/i.test(ua)) {
+        rate.href = 'https://apps.apple.com/app/id6773098308?action=write-review';
+      } else if (/Android/i.test(ua)) {
+        rate.href = 'https://play.google.com/store/apps/details?id=com.magiccu.magiccubepro';
+      }
+    }
+
     var revealed = document.querySelectorAll('[data-reveal]');
     if ('IntersectionObserver' in window && revealed.length) {
       var io = new IntersectionObserver(function (entries) {
