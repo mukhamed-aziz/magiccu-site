@@ -250,13 +250,13 @@
     border: 1px solid rgba(255,233,105,.34); border-radius: 999px;
     background: rgba(255,233,105,.09);
     padding: .6em 1.35em; color: #FFE969; font-weight: 700; font-size: .92rem; letter-spacing: .1em;
-    font-family: inherit; cursor: pointer;
+    text-decoration: none;
     transition: background .25s ease, border-color .25s ease, transform .25s ease;
   }
   .rate svg { width: 17px; height: 17px; fill: currentColor; flex: none; }
-  .rate small { color: #8a8256; font-weight: 500; letter-spacing: normal; }
-  .rate[disabled] { cursor: default; opacity: .78; }
-  @media (hover: hover) { .rate:not([disabled]):hover { background: rgba(255,233,105,.16); border-color: rgba(255,233,105,.55); transform: translateY(-2px); } }
+  @media (hover: hover) {
+    .rate:hover { background: rgba(255,233,105,.16); border-color: rgba(255,233,105,.55); transform: translateY(-2px); text-decoration: none; }
+  }
   .credits .fine { margin-top: 1.5rem; color: #72889C; font-size: .8rem; }
   .credits .fine a { color: #8CD0FF; }
   @media (max-width: 480px) { .people { gap: 1.6rem; } }

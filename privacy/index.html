@@ -12,14 +12,17 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { color-scheme: dark; scroll-behavior: smooth; }
   body {
     background: #02070E;
     color: #DBE6F0;
-    font: 16px/1.65 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Oxanium', 'Segoe UI', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.65;
     padding: 0 1.25rem 4rem;
   }
   body::before {
@@ -30,21 +33,10 @@
       linear-gradient(180deg, #0A1A2A 0%, #02070E 100%);
   }
   main { max-width: 660px; width: 100%; margin: 0 auto; padding-top: 2.2rem; }
-  .home {
-    font-family: 'Oxanium', 'Segoe UI', sans-serif;
-    font-size: .85rem; font-weight: 700; letter-spacing: .08em;
-    margin-bottom: 2rem; display: inline-block;
-  }
-  h1 {
-    font-family: 'Oxanium', 'Segoe UI', sans-serif;
-    font-weight: 800; color: #F2F6FB; letter-spacing: .04em;
-    font-size: 1.7rem; margin: 0 0 .3rem;
-  }
-  h2 {
-    font-family: 'Oxanium', 'Segoe UI', sans-serif;
-    font-weight: 700; color: #F2F6FB; letter-spacing: .03em;
-    font-size: 1.12rem; margin: 2.1rem 0 .55rem;
-  }
+  .home { font-size: .85rem; font-weight: 700; letter-spacing: .08em; margin-bottom: 2rem; display: inline-block; text-decoration: none; }
+  .home:hover { text-decoration: underline; }
+  h1 { font-weight: 800; color: #F2F6FB; letter-spacing: .04em; font-size: 1.7rem; margin: 0 0 .3rem; }
+  h2 { font-weight: 700; color: #F2F6FB; letter-spacing: .03em; font-size: 1.12rem; margin: 2.1rem 0 .55rem; }
   p { color: #B8C7D6; }
   .meta { color: #72889C; font-size: .9rem; margin-bottom: 2rem; }
   .card {
@@ -54,10 +46,7 @@
   }
   a { color: #8CD0FF; }
   strong { color: #F2F6FB; }
-  footer {
-    font-family: 'Oxanium', 'Segoe UI', sans-serif;
-    margin-top: 3rem; color: #72889C; font-size: .85rem;
-  }
+  footer { margin-top: 3rem; color: #72889C; font-size: .85rem; }
 </style>
 </head>
 <body>
