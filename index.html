@@ -69,9 +69,9 @@
       linear-gradient(180deg, #0A1A2A 0%, #02070E 100%);
   }
   ::selection { background: rgba(140,208,255,.28); }
-  a { color: #8CD0FF; text-decoration: none; }
+  a { color: #FFE54F; text-decoration: none; }
   a:hover { text-decoration: underline; }
-  a:focus-visible, button:focus-visible { outline: 2px solid #8CD0FF; outline-offset: 3px; border-radius: 4px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid #FFE54F; outline-offset: 3px; border-radius: 4px; }
   img { display: block; max-width: 100%; height: auto; }
   .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 
@@ -87,8 +87,8 @@
   .brand:hover { text-decoration: none; }
   .brand svg { width: 24px; height: 27px; flex: none; }
   .navlinks { display: flex; gap: 1.4rem; font-size: .8rem; font-weight: 600; letter-spacing: .06em; }
-  .navlinks a { color: #9FB3C6; }
-  .navlinks a:hover { color: #F2F6FB; text-decoration: none; }
+  .navlinks a { color: #FFE54F; }
+  .navlinks a:hover { color: #FFFFFF; text-decoration: none; }
   @media (max-width: 560px) {
     .brand .brandword { display: none; }
     .navlinks { gap: 1rem; }
@@ -118,7 +118,7 @@
   .pill {
     display: inline-flex; align-items: center; gap: .55em;
     border: 1px solid rgba(140,208,255,.3); border-radius: 999px;
-    padding: .65em 1.35em; font-weight: 700; font-size: .95rem; color: #F2F6FB;
+    padding: .65em 1.35em; font-weight: 700; font-size: .95rem; color: #FFE54F;
     background: rgba(18,48,74,.35);
     transition: background .25s ease, border-color .25s ease, transform .25s ease;
   }
@@ -177,10 +177,10 @@
   .arrow {
     width: 42px; height: 42px; border-radius: 50%;
     border: 1px solid rgba(140,208,255,.3); background: rgba(18,48,74,.35);
-    color: #8CD0FF; font-size: 1.1rem; cursor: pointer;
+    color: #FFE54F; font-size: 1.1rem; cursor: pointer;
     font-family: inherit; display: flex; align-items: center; justify-content: center;
   }
-  .arrow:hover { background: rgba(28,68,104,.55); color: #F2F6FB; }
+  .arrow:hover { background: rgba(28,68,104,.55); color: #FFFFFF; }
   .strip {
     margin-top: 2rem; display: flex; gap: 1.1rem;
     overflow-x: auto; scroll-snap-type: x mandatory;
@@ -236,29 +236,29 @@
   }
   @media (hover: hover) {
     .person:hover img { transform: translateY(-3px); border-color: rgba(140,208,255,.6); box-shadow: 0 12px 26px rgba(0,0,0,.45); }
-    .person:hover .handle { color: #F2F6FB; }
+    .person:hover .handle { color: #FFFFFF; }
   }
   .handle {
     margin-top: .7rem; display: flex; align-items: center; justify-content: center; gap: .4em;
-    color: #9FB3C6; font-size: .85rem; font-weight: 600; transition: color .3s ease;
+    color: #FFE54F; font-size: .85rem; font-weight: 600; transition: color .3s ease;
   }
   .handle svg { width: 11px; height: 11px; fill: currentColor; flex: none; }
   .credits .line { margin-top: 1.7rem; color: #B8C7D6; font-size: .98rem; }
   .credits .line + .line { margin-top: .2rem; }
   .rate {
     margin-top: 1.6rem; display: inline-flex; align-items: center; gap: .55em;
-    border: 1px solid rgba(255,233,105,.34); border-radius: 999px;
-    background: rgba(255,233,105,.09);
-    padding: .6em 1.35em; color: #FFE969; font-weight: 700; font-size: .92rem; letter-spacing: .1em;
+    border: 1px solid rgba(255,229,79,.34); border-radius: 999px;
+    background: rgba(255,229,79,.09);
+    padding: .6em 1.35em; color: #FFE54F; font-weight: 700; font-size: .92rem; letter-spacing: .1em;
     text-decoration: none;
     transition: background .25s ease, border-color .25s ease, transform .25s ease;
   }
   .rate svg { width: 17px; height: 17px; fill: currentColor; flex: none; }
   @media (hover: hover) {
-    .rate:hover { background: rgba(255,233,105,.16); border-color: rgba(255,233,105,.55); transform: translateY(-2px); text-decoration: none; }
+    .rate:hover { background: rgba(255,229,79,.16); border-color: rgba(255,229,79,.55); transform: translateY(-2px); text-decoration: none; }
   }
   .credits .fine { margin-top: 1.5rem; color: #72889C; font-size: .8rem; }
-  .credits .fine a { color: #8CD0FF; }
+  .credits .fine a { color: #FFE54F; }
   @media (max-width: 480px) { .people { gap: 1.6rem; } }
 
   /* ---------- motion & interaction ---------- */
@@ -276,7 +276,7 @@
   }
   .arrow { transition: background .25s ease, color .25s ease, opacity .25s ease; }
   .arrow:disabled { opacity: .32; cursor: default; }
-  .arrow:disabled:hover { background: rgba(18,48,74,.35); color: #8CD0FF; }
+  .arrow:disabled:hover { background: rgba(18,48,74,.35); color: #FFE54F; }
   .closing { position: relative; }
   .closing::before {
     content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
